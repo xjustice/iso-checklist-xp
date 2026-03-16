@@ -1,0 +1,198 @@
+:root {
+  --xp-blue: #0058e6;
+  --xp-blue-dark: #0030a0;
+  --xp-bg: #ece9d8;
+  --xp-window-title: linear-gradient(to bottom, #0058e6 0%, #3a93ff 10%, #0058e6 90%, #0030a0 100%);
+  --xp-border: #0030a0;
+  --xp-gray: #d4d0c8;
+  --xp-text: #000000;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Tahoma", "MS Sans Serif", sans-serif;
+  background-color: #3a6ea5; /* Classic XP background color */
+  overflow: hidden;
+  height: 100vh;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.desktop {
+  flex: 1;
+  position: relative;
+  padding: 20px;
+}
+
+.window {
+  background-color: var(--xp-bg);
+  border: 4px solid var(--xp-blue);
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+  min-width: 600px;
+  max-width: 1000px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.window-title {
+  background: var(--xp-window-title);
+  color: white;
+  padding: 8px 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-size: 14px;
+  text-shadow: 1px 1px 1px #0030a0;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+}
+
+.window-buttons {
+  display: flex;
+  gap: 2px;
+}
+
+.window-button {
+  width: 21px;
+  height: 21px;
+  border: 1px solid white;
+  background-color: #d4d0c8;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  font-weight: bold;
+  box-shadow: inset -1px -1px 1px #808080, inset 1px 1px 1px #ffffff;
+  cursor: pointer;
+}
+
+.window-button.close {
+  background-color: #e81123;
+  color: white;
+  border-color: #ffffff;
+}
+
+.window-body {
+  padding: 0; /* Remove padding for edge-to-edge layout */
+  display: flex;
+  height: 70vh;
+  background-color: white;
+}
+
+.sidebar {
+  width: 200px;
+  background: linear-gradient(to bottom, #748aff 0%, #4059d3 100%);
+  padding: 10px;
+  color: white;
+  border-right: 2px solid #0030a0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sidebar-item {
+  padding: 8px 12px;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: background-color 0.2s;
+}
+
+.sidebar-item:hover {
+  background-color: rgba(255, 255, 255, 0.4);
+}
+
+.sidebar-item.active {
+  background-color: #ffffff;
+  color: #0030a0;
+  font-weight: bold;
+}
+
+.content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
+.taskbar {
+  height: 30px;
+  background: linear-gradient(to bottom, #245edb 0%, #3f8cf3 9%, #245edb 18%, #245edb 92%, #1941a5 100%);
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  color: white;
+  font-weight: bold;
+  z-index: 100;
+}
+
+.start-button {
+  background: linear-gradient(to bottom, #388e3c 0%, #81c784 10%, #388e3c 90%, #1b5e20 100%);
+  padding: 2px 15px;
+  border-radius: 0 10px 10px 0;
+  margin-right: 10px;
+  font-style: italic;
+  font-size: 16px;
+  border: 1px solid #1b5e20;
+  cursor: pointer;
+}
+
+.checklist-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checklist-section {
+  border: 1px solid #808080;
+  padding: 0;
+  background-color: white;
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-weight: bold;
+  background-color: #000080;
+  color: white;
+  padding: 5px 10px;
+}
+
+.checklist-item {
+  display: grid;
+  grid-template-columns: 50px 1fr 100px 180px;
+  gap: 15px;
+  padding: 10px;
+  border-bottom: 1px solid #e0e0e0;
+  align-items: center;
+}
+
+.checklist-item.header {
+  font-weight: bold;
+  background-color: #f7f7f7;
+  border-bottom: 2px solid #808080;
+}
+
+select, input, textarea {
+  border: 1px solid #7f9db9;
+  padding: 4px;
+  font-size: 12px;
+}
+
+.export-footer {
+  padding: 15px;
+  border-top: 1px solid #d4d0c8;
+  background-color: #ece9d8;
+  text-align: right;
+}
