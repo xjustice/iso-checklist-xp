@@ -229,21 +229,21 @@ body {
 }
 
 .checklist-header {
-  padding: 10px 15px 5px 15px;
-  background-color: white;
-  border-bottom: none;
+  padding: 15px;
+  border-bottom: 1px solid #eee;
+  background-color: #fafafa;
 }
 
 .checklist-header h1 {
   margin: 0;
-  font-size: 14px;
+  font-size: 16px;
   color: #003399;
 }
 
 .checklist-scroll {
   flex: 1;
   overflow-y: auto;
-  padding: 0 10px 10px 10px;
+  padding: 10px;
   scroll-behavior: smooth;
 }
 
