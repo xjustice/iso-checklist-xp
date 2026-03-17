@@ -211,21 +211,29 @@ export default function App() {
                         tabIndex={0}
                         id={`judgement-${item.id}`}
                         onKeyDown={(e) => {
+                          const options = ['적합', '부적합', '유의'];
+                          
                           if (e.key === 'Tab' && !e.shiftKey) {
                             const currentIndex = filteredData.findIndex(d => d.id === item.id);
                             const nextItem = filteredData[currentIndex + 1];
                             if (nextItem) {
                               e.preventDefault();
-                              // Automatically mark as '적합' if not already marked
                               if (!nextItem.status) {
                                 handleStatusChange(nextItem.id, '적합');
                               }
-                              // Focus the next item
                               const nextEl = document.getElementById(`judgement-${nextItem.id}`);
-                              if (nextEl) {
-                                nextEl.focus();
-                              }
+                              if (nextEl) nextEl.focus();
                             }
+                          } else if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+                            e.preventDefault();
+                            const currentStatusIndex = options.indexOf(item.status || '적합');
+                            let nextStatusIndex;
+                            if (e.key === 'ArrowDown') {
+                              nextStatusIndex = (currentStatusIndex + 1) % options.length;
+                            } else {
+                              nextStatusIndex = (currentStatusIndex - 1 + options.length) % options.length;
+                            }
+                            handleStatusChange(item.id, options[nextStatusIndex]);
                           }
                         }}
                       >
