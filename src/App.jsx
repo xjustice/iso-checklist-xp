@@ -144,11 +144,9 @@ export default function App() {
         
         <div style={{ width: '1px', height: '20px', background: '#ccc', margin: '0 5px' }}></div>
         
-        {(filter === 'nc' || filter === 'cn') && (
-          <button className="xp-btn" onClick={downloadExcel} style={{ color: '#059669', fontWeight: 'bold' }}>
-            <FileSpreadsheet size={14} /> 엑셀 다운로드
-          </button>
-        )}
+        <button className="xp-btn" onClick={downloadExcel} style={{ color: '#059669', fontWeight: 'bold' }}>
+          <FileSpreadsheet size={14} /> 엑셀 다운로드
+        </button>
 
         <div style={{ flex: 1 }}></div>
         <button className="xp-btn" onClick={() => setShowConfirm(true)} style={{ color: '#d32f2f', fontWeight: 'bold' }}>
