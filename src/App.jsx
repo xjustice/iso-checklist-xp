@@ -215,9 +215,14 @@ export default function App() {
                             const currentIndex = filteredData.findIndex(d => d.id === item.id);
                             const nextItem = filteredData[currentIndex + 1];
                             if (nextItem) {
+                              e.preventDefault();
+                              // Automatically mark as '적합' if not already marked
+                              if (!nextItem.status) {
+                                handleStatusChange(nextItem.id, '적합');
+                              }
+                              // Focus the next item
                               const nextEl = document.getElementById(`judgement-${nextItem.id}`);
                               if (nextEl) {
-                                e.preventDefault();
                                 nextEl.focus();
                               }
                             }
