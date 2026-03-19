@@ -24,13 +24,15 @@ jobs:
 
       - name: Build and Package
         run: npm run package
-                                            GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  tron-builder will detect Windows and build NSIS installer
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload Release Artifacts
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: release/*.exe
+          files: |
+            release/*.exe
+            release/*.blockmap
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
