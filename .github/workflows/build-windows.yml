@@ -24,6 +24,8 @@ jobs:
 
       - name: Build and Package
         run: npm run package
+                env:
+                          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         # electron-builder will detect Windows and build NSIS installer
 
       - name: Upload Release Artifacts
